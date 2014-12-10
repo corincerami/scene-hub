@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+
+  get '/' => 'show#index'
+  get '/shows' => 'show#index'
+  get '/shows/new' => 'show#new'
+
+  get '/venues/new' => 'venue#new'
+  post '/venues/new' => 'venue#create'
+  get '/venues/index' => 'venue#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

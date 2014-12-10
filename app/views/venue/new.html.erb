@@ -1,0 +1,15 @@
+Add a new venue
+
+<div>
+  <form action='/venues/new' method='post'>
+    <input type='text' name='venue_name' placeholder='Venue Name'>
+    <input type='text' name='venue_description' placeholder='Description'>
+    <input type='text' name='street_1' placeholder='Street Address Line 1'>
+    <input type='text' name='street_2' placeholder='Street Address Line 2'>
+    <input type='text' name='city' placeholder='City'>
+    <input type='text' name='state' placeholder='State'>
+    <input type='text' name='zip_code' placeholder='Zip Code'>
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+    <input type='submit' value='Submit'>
+  </form>
+<div>
