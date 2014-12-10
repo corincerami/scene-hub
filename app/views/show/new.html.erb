@@ -1,0 +1,8 @@
+<form action='/shows/new' method='post'>
+  <input type='text' name='band_name' placeholder='Band name'>
+  <input type='text' name='venue_name' placeholder='Venue name'>
+  <input type='text' name='details' placeholder='Details'>
+  <input type='datetime-local' name='datetime'>
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <input type='submit' value='Submit show'>
+</form>

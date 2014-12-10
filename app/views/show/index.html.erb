@@ -1,5 +1,21 @@
 <% @shows.each do |show| %>
-  <%= show.bands %>
+  <div>
+    <% show.bands.each do |band| %>
+      <div>
+        <%= band.name %>
+      </div>
+    <% end %>
+    <% show.venues.each do |venue| %>
+      <div>
+        <%= venue.name %>
+      </div>
+    <% end %>
+    <div>
+      <%= show.details %>
+    </div>
+    <div>
+      <%= show.datetime %>
+    </div>
+  </div>
+  ________________________________________
 <% end %>
-
-<a href='/shows/new'>

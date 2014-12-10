@@ -12,7 +12,7 @@ class VenueController < ApplicationController
                       street_1: params[:street_1], street_2: params[:street_2],
                       city: params[:city], state: params[:state], zip_code: params[:zip_code])
     if @venue.save
-      redirect_to '/'
+      redirect_to '/venues', notice: "Venue added!"
     else
       render :new
     end

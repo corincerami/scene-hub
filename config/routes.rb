@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/' => 'show#index'
   get '/shows' => 'show#index'
   get '/shows/new' => 'show#new'
+  post '/shows/new' => 'show#create'
 
   get '/venues/new' => 'venue#new'
   post '/venues/new' => 'venue#create'
