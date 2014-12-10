@@ -4,4 +4,6 @@ class Band < ActiveRecord::Base
 
   has_many :genre_bands
   has_many :genres, through: :genre_bands
+
+  validates :name, presence: true, uniqueness: true
 end

@@ -1,0 +1,17 @@
+Add a new band
+
+<div class='errors'>
+  <% if @band.errors %>
+    <%= @band.errors.full_messages %>
+  <% end %>
+</div>
+
+<%= @band.name %>
+
+<form action='/bands/new' method='post'>
+  <input type='text' name='band_name' placeholder="Band's name">
+  Enter a genre for your band.
+  <input type='text' name='genre' placeholder="Genre">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <input type='submit' value='Submit'>
+</form>

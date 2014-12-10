@@ -1,0 +1,8 @@
+<% @bands.each do |band| %>
+  <div>
+    <%= band.name %>
+    <% band.genres.each do |genre| %>
+      <div><%= genre.genre %></div>
+    <% end %>
+  </div>
+<% end %>
