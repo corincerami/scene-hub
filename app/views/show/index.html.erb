@@ -5,7 +5,7 @@
 </div>
 
 <% @shows.each do |show| %>
-  <div>
+  <div class='border'>
     <% show.bands.each do |band| %>
       <div>
         <%= band.name %>
@@ -23,5 +23,4 @@
       <%= show.datetime %>
     </div>
   </div>
-  ________________________________________
 <% end %>

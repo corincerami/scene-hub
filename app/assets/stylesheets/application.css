@@ -16,6 +16,19 @@
 .post-button {
   padding: 10px;
   width: 120px;
-  background-color: navy;
-  color: white;
+  background-color: #FF389C;
+  color: #000;
+}
+
+.border {
+  border: 2px solid #FF389C;
+  width: 70%;
+}
+
+a {
+  color: #FF389C;
+}
+
+a .visited {
+  color: #7F1C4E;
 }
