@@ -6,7 +6,7 @@ class ShowController < ApplicationController
   def index
     @shows = Show.all.order(:datetime)
     if params[:zip_code]
-      @shows = Show.where(zip_code: params[:zip_code])
+      @shows = Show.joins(:venue).where(venues: { zip_code: params[:zip_code] })
     end
   end
 

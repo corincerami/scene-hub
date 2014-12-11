@@ -29,6 +29,7 @@
   border: 4px solid #FF389C;
   width: 70%;
   font-family: sans-serif;
+  background-color: #FA9EF9;
 }
 
 a {
@@ -46,4 +47,6 @@ a:visited {
 .zip-code-form {
   border: 4px solid #FF389C;
   display: inline-block;
+  background-color: #FA9EF9;
+  padding: 5px;
 }
