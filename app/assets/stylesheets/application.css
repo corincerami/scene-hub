@@ -30,6 +30,7 @@
   width: 70%;
   font-family: sans-serif;
   background-color: #FA9EF9;
+  padding: 5px;
 }
 
 a {
@@ -49,4 +50,16 @@ a:visited {
   display: inline-block;
   background-color: #FA9EF9;
   padding: 5px;
+}
+
+.flash-error {
+  background-color: red;
+  width: 100px;
+  padding: 4px;
+}
+
+.flash-notice {
+  background-color: #34FA6F;
+  width: 100px;
+  padding: 4px;
 }
