@@ -1,7 +1,15 @@
-<div>
+<span>
   <a href='/shows/new'>
     <div class='post-button'>Post a new show!</div>
   </a>
+</span>
+
+<div class='zip-code-form'>
+  Find a Show by Zip Code:
+  <form action='/shows' method='get'>
+    <input type='text' name='zip_code' placeholder='Zip Code'>
+    <input type='submit' value='Find a Show'>
+  </form>
 </div>
 
 <% @shows.each do |show| %>

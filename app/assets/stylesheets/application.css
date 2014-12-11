@@ -15,20 +15,35 @@
  */
 .post-button {
   padding: 10px;
-  width: 120px;
+  width: 140px;
   background-color: #FF389C;
   color: #000;
+  margin-bottom: 10px;
+  border: 4px solid #000;
+  font-weight: bold;
+  font-family: sans-serif;
+  display: inline-block;
 }
 
 .border {
-  border: 2px solid #FF389C;
+  border: 4px solid #FF389C;
   width: 70%;
+  font-family: sans-serif;
 }
 
 a {
   color: #FF389C;
 }
 
-a .visited {
-  color: #7F1C4E;
+a:visited {
+  color: #B0276C;
+}
+
+* {
+  font-family: sans-serif;
+}
+
+.zip-code-form {
+  border: 4px solid #FF389C;
+  display: inline-block;
 }

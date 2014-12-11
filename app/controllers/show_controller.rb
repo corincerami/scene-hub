@@ -4,7 +4,10 @@ class ShowController < ApplicationController
   end
 
   def index
-    @shows = Show.all
+    @shows = Show.all.order(:datetime)
+    if params[:zip_code]
+      @shows = Show.where(zip_code: params[:zip_code])
+    end
   end
 
   def create
