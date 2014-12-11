@@ -1,13 +1,13 @@
 class ShowController < ApplicationController
+  helper ShowHelper
+
   def new
     @show = Show.new
   end
 
   def index
     @shows = Show.all.order(:datetime)
-    if params[:zip_code]
-      @shows = Show.joins(:venue).where(venues: { zip_code: params[:zip_code] })
-    end
+    @user_zip = params[:zip_code]
   end
 
   def create
