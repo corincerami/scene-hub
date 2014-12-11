@@ -1,8 +1,44 @@
 <form action='/shows/new' method='post'>
-  <input type='text' name='band_name' placeholder='Band name'>
-  <input type='text' name='venue_name' placeholder='Venue name'>
-  <input type='text' name='details' placeholder='Details'>
-  <input type='datetime-local' name='datetime'>
-  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-  <input type='submit' value='Submit show'>
+  <div>Band Details:</div>
+  <div>
+    <input type='text' name='band_name' placeholder='Band name'>
+  </div>
+  <div>
+    <input type='text' name='band_genre' placeholder='Band genre'>
+  </div>
+  <div>Venue Details:</div>
+  <div>
+    <input type='text' name='venue_name' placeholder='Venue name'>
+  </div>
+  <div>
+    <input type='text' name='venue_description' placeholder='Description'>
+  </div>
+  <div>
+    <input type='text' name='venue_street_1' placeholder='Street Address 1'>
+  </div>
+  <div>
+    <input type='text' name='venue_street_2' placeholder='Street Address 2'>
+  </div>
+  <div>
+    <input type='text' name='venue_city' placeholder='City'>
+  </div>
+  <div>
+    <input type='text' name='venue_state' placeholder='State'>
+  </div>
+  <div>
+    <input type='text' name='venue_zip_code' placeholder='Zip code'>
+  </div>
+  <div>Show Details:</div>
+  <div>
+    <input type='text' name='details' placeholder='Details'>
+  </div>
+  <div>
+    <input type='datetime-local' name='datetime'>
+  </div>
+  <div>
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  </div>
+  <div>
+    <input type='submit' value='Submit show'>
+  </div>
 </form>
