@@ -12,18 +12,9 @@
   </form>
 </div>
 
-<% @nearby_shows = Array.new %>
-<% @shows.each do |show| %>
-  <% if @user_zip && !@user_zip.empty? %>
-    <% if check_distance(@user_zip, show.venue.zip_code) < 25 %>
-      <% @nearby_shows << show %>
-    <% end %>
-  <% else %>
-    <% @nearby_shows = @shows %>
-  <% end %>
-<% end %>
+<%= paginate @shows %>
 
-<% @nearby_shows.each do |show| %>
+<% @shows.each do |show| %>
   <div class='border'>
     <% show.bands.each do |band| %>
       <div>
