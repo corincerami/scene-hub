@@ -10,6 +10,8 @@ gem 'kaminari'
 # location services
 gem 'geokit'
 gem 'geokit-rails'
+# gem for authentication
+gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use sqlite3 as the database for Active Record
