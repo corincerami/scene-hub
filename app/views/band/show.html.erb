@@ -1,24 +1,27 @@
-<div>
-  <%= @band.name %>
+<div class='border'>
+  <h1>
+    <%= @band.name %>
+  </h1>
+  <h3>Genre:</h3>
+  <% @band.genres.each do |genre| %>
+    <div>
+      <%= genre.genre %>
+    </div>
+  <% end %>
+  <h3>Shows:</h3>
+  <% @band.shows.each do |show| %>
+    <div>
+    <a href='/shows/<%= show.id %>'>
+      <div>
+        <%= show.venue.name %>
+      </div>
+      <div>
+        <%= "#{show.venue.city}, #{show.venue.state}" %>
+      </div>
+      <div>
+        <%= show.datetime %>
+      </div>
+      </a>
+    </div>
+  <% end %>
 </div>
-Genre:
-<% @band.genres.each do |genre| %>
-  <div>
-    <%= genre.genre %>
-  </div>
-<% end %>
-<% @band.shows.each do |show| %>
-  <div>
-  <a href='/shows/<%= show.id %>'>
-    <div>
-      <%= show.venue.name %>
-    </div>
-    <div>
-      <%= "#{show.venue.city}, #{show.venue.state}" %>
-    </div>
-    <div>
-      <%= show.datetime %>
-    </div>
-    </a>
-  </div>
-<% end %>

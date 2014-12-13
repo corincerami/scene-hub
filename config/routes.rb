@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/venues/new' => 'venue#new'
   post '/venues/new' => 'venue#create'
   get '/venues' => 'venue#index'
-  get '/venues/#id' => 'venue#show'
+  get '/venues/:id' => 'venue#show'
 
   get '/bands' => 'band#index'
   get '/bands/:id' => 'band#show'

@@ -8,7 +8,7 @@ class VenueController < ApplicationController
   end
 
   def show
-    @band = Venue.find(params[:id])
+    @venue = Venue.find(params[:id])
   end
 
   before_action :authenticate_user!, only: [:create]

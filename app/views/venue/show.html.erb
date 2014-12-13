@@ -1,0 +1,16 @@
+<h3>Shows:</h3>
+
+<% @venue.shows.each do |show| %>
+  <div class='border'>
+  <a href='/shows/<%= show.id %>'>
+    <% show.bands.each do |band| %>
+      <div>
+        <%= band.name %>
+      </div>
+    <% end %>
+    <div>
+      <%= show.datetime %>
+    </div>
+    </a>
+  </div>
+<% end %>
