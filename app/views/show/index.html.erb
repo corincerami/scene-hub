@@ -15,14 +15,14 @@
 <%= paginate @shows %>
 
 <% @shows.each do |show| %>
-  <a href='/shows/<%= show.id %>'><div class='border'>
+  <div class='border'>
     <% show.bands.each do |band| %>
       <div>
-        <%= band.name %>
+        <a href="/bands/<%= band.id %>"><%= band.name %></a>
       </div>
     <% end %>
     <div>
-      <%= show.venue.name %>
+      <a href='/venues/<%= show.venue.id %>'><%= show.venue.name %></a>
     </div>
     <div>
       <%= show.details %>
@@ -30,5 +30,10 @@
     <div>
       <%= show.datetime %>
     </div>
-  </div></a>
+    <div>
+      <a href='/shows/<%= show.id %>'>
+      Check out this show
+      </a>
+    </div>
+  </div>
 <% end %>

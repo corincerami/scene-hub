@@ -10,8 +10,10 @@ Rails.application.routes.draw do
   get '/venues/new' => 'venue#new'
   post '/venues/new' => 'venue#create'
   get '/venues' => 'venue#index'
+  get '/venues/#id' => 'venue#show'
 
   get '/bands' => 'band#index'
+  get '/bands/:id' => 'band#show'
   get '/bands/new' => 'band#new'
   post '/bands/new' => 'band#create'
   # The priority is based upon order of creation: first created -> highest priority.

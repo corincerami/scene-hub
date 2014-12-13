@@ -7,6 +7,10 @@ class VenueController < ApplicationController
     @venue = Venue.new
   end
 
+  def show
+    @band = Venue.find(params[:id])
+  end
+
   before_action :authenticate_user!, only: [:create]
   def create
     @venue = Venue.new(name: params[:venue_name], description: params[:venue_description],
