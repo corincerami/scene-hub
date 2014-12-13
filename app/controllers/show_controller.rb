@@ -1,32 +1,18 @@
 class ShowController < ApplicationController
-
   def new
     @show = Show.new
   end
 
-  Dotenv.load
-
-  def check_distance(user_zip, show_zip)
-      api_key = ENV["ZIP_CODE_API_KEY"]
-      zip_api_response = URI("https://www.zipcodeapi.com/rest/#{api_key}/distance.json/#{user_zip}/#{show_zip}/mile")
-      response = Net::HTTP.get(zip_api_response)
-      distance = JSON.parse(response)["distance"]
-  end
-
   def index
     @user_zip = params[:zip_code]
-    shows = Show.order(:datetime)
-    @shows = Array.new
-    shows.each do |show|
-      if @user_zip && !@user_zip.empty?
-        if check_distance(@user_zip, show.venue.zip_code) < 25
-          @shows << show
-        end
-      else
-        @shows = shows
-      end
+    if @user_zip
+      # geokit docs seems to be incorrect and .join needs
+      # to be used with associated tables
+      @shows = Show.joins('LEFT OUTER JOIN venues ON venues.id =
+                          shows.venue_id').within(25, :origin=>@user_zip).page(params[:page])
+    else
+      @shows = Show.page(params[:page])
     end
-    @shows = Kaminari.paginate_array(@shows).page(params[:page])
   end
 
   def create
