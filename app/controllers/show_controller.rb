@@ -15,6 +15,7 @@ class ShowController < ApplicationController
     end
   end
 
+  before_action :authenticate_user!, only: [:create]
   def create
     venue = Venue.find_or_create_by(name: params[:venue_name], description: params[:venue_description],
                                     street_1: params[:venue_street_1], street_2: params[:venue_street_2],

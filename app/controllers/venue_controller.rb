@@ -7,6 +7,7 @@ class VenueController < ApplicationController
     @venue = Venue.new
   end
 
+  before_action :authenticate_user!, only: [:create]
   def create
     @venue = Venue.new(name: params[:venue_name], description: params[:venue_description],
                       street_1: params[:street_1], street_2: params[:street_2],

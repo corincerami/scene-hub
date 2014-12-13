@@ -7,6 +7,7 @@ class BandController < ApplicationController
     @band = Band.new
   end
 
+  before_action :authenticate_user!, only: [:create]
   def create
     @band = Band.new(name: params[:band_name])
 
