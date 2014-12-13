@@ -15,7 +15,7 @@
 <%= paginate @shows %>
 
 <% @shows.each do |show| %>
-  <div class='border'>
+  <a href='/shows/<%= show.id %>'><div class='border'>
     <% show.bands.each do |band| %>
       <div>
         <%= band.name %>
@@ -30,5 +30,5 @@
     <div>
       <%= show.datetime %>
     </div>
-  </div>
+  </div></a>
 <% end %>

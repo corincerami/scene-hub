@@ -15,6 +15,10 @@ class ShowController < ApplicationController
     end
   end
 
+  def show
+    @show = Show.find(params[:id])
+  end
+
   before_action :authenticate_user!, only: [:create]
   def create
     venue = Venue.find_or_create_by(name: params[:venue_name], description: params[:venue_description],

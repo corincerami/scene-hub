@@ -1,0 +1,32 @@
+<% @show.bands.each do |band| %>
+  <div>
+    <%= band.name %>
+  </div>
+  Genres:
+  <% band.genres.each do |genre| %>
+    <div>
+      <%= genre.genre %>
+    </div>
+  <% end %>
+<% end %>
+<div>
+  <%= @show.details %>
+</div>
+<div>
+  <%= @show.datetime %>
+</div>
+<div>
+  <%= @show.venue.name %>
+</div>
+<div>
+  <%= @show.venue.description %>
+</div>
+<div>
+  <%= "#{@show.venue.street_1} #{@show.venue.street_2}" %>
+</div>
+<div>
+  <%= "#{@show.venue.city}, #{@show.venue.state}" %>
+</div>
+<div>
+  <%= @show.venue.zip_code %>
+</div>
