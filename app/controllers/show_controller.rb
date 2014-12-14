@@ -22,26 +22,43 @@ class ShowController < ApplicationController
 
   before_action :authenticate_user!, only: [:create, :new]
   def create
-    venue = Venue.find_or_create_by(name: params[:venue_name], description: params[:venue_description],
+    venue = Venue.find_or_initialize_by(name: params[:venue_name], description: params[:venue_description],
                                     street_1: params[:venue_street_1], street_2: params[:venue_street_2],
                                     city: params[:venue_city], state: params[:venue_state],
                                     zip_code: params[:venue_zip_code])
-    address = "#{venue.street_1}, #{venue.city}, #{venue.state}"
-    loc=MultiGeocoder.geocode(address)
-    if loc.success
-      venue.update(lat: loc.lat)
-      venue.update(lng: loc.lng)
-      venue.save
-    end
-    @show = Show.new(datetime: params[:datetime], details: params[:details], venue_id: venue.id)
-    if @show.save
-      band = Band.find_or_create_by(name: params[:band_name])
-      ShowBand.find_or_create_by(band_id: band.id, show_id: @show.id)
-      genre = Genre.find_or_create_by(genre: params[:band_genre])
-      GenreBand.find_or_create_by(band_id: band.id, genre_id: genre.id)
-      redirect_to '/shows', notice: "Show created!"
+    if check_zip_code(params[:venue_zip_code])
+      address = "#{venue.street_1}, #{venue.city}, #{venue.state}"
+      # geokit module to convert address into longitude and latitude
+      loc = MultiGeocoder.geocode(address)
+      if loc.success
+        venue.lat = loc.lat
+        venue.lng = loc.lng
+        venue.save
+      end
+      @show = Show.new(datetime: params[:datetime], details: params[:details], venue_id: venue.id)
+      if @show.save
+        band = Band.find_or_create_by(name: params[:band_name])
+        ShowBand.find_or_create_by(band_id: band.id, show_id: @show.id)
+        genre = Genre.find_or_create_by(genre: params[:band_genre])
+        GenreBand.find_or_create_by(band_id: band.id, genre_id: genre.id)
+        redirect_to '/shows', notice: "Show created!"
+      else
+        render :new
+      end
     else
       render :new
     end
+  end
+
+  Dotenv.load
+  def check_zip_code(zip_code)
+    api_key = ENV["ZIP_CODE_API_KEY"]
+    zip_api_response = URI("http://www.zipcodeapi.com/rest/#{api_key}/info.json/#{zip_code}/degrees")
+    response = Net::HTTP.get(zip_api_response)
+    zip = JSON.parse(response)["zip_code"]
+    if zip.nil?
+      flash[:error] = "Invalid zip code"
+    end
+    !zip.nil?
   end
 end
