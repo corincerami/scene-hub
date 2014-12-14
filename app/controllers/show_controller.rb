@@ -22,6 +22,7 @@ class ShowController < ApplicationController
 
   before_action :authenticate_user!, only: [:create, :new]
   def create
+    @show = Show.new
     venue = Venue.find_or_initialize_by(name: params[:venue_name], description: params[:venue_description],
                                     street_1: params[:venue_street_1], street_2: params[:venue_street_2],
                                     city: params[:venue_city], state: params[:venue_state],

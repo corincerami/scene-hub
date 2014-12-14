@@ -4,4 +4,6 @@ class Show < ActiveRecord::Base
 
   has_many :show_bands
   has_many :bands, through: :show_bands
+
+  validates_presence_of :datetime, :venue_id
 end

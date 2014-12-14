@@ -1,3 +1,9 @@
+<% if @show.errors %>
+  <% @show.errors.full_messages.each do |msg| %>
+    <%= msg %>
+  <% end %>
+<% end %>
+
 <form action='/shows/new' method='post'>
   <div>Band Details:</div>
   <div>
