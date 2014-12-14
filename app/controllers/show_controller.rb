@@ -1,4 +1,6 @@
 class ShowController < ApplicationController
+  include Geokit::Geocoders
+
   def new
     @show = Show.new
   end
@@ -8,10 +10,9 @@ class ShowController < ApplicationController
     if @user_zip
       # geokit docs seems to be incorrect and .join needs
       # to be used with associated tables
-      @shows = Show.joins('LEFT OUTER JOIN venues ON venues.id =
-                          shows.venue_id').within(25, :origin=>@user_zip).page(params[:page])
+      @shows = Show.joins(:venue).within(25, :origin=>@user_zip).order(:datetime).page(params[:page])
     else
-      @shows = Show.page(params[:page])
+      @shows = Show.order(:datetime).page(params[:page])
     end
   end
 
@@ -19,12 +20,19 @@ class ShowController < ApplicationController
     @show = Show.find(params[:id])
   end
 
-  before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_user!, only: [:create, :new]
   def create
     venue = Venue.find_or_create_by(name: params[:venue_name], description: params[:venue_description],
                                     street_1: params[:venue_street_1], street_2: params[:venue_street_2],
                                     city: params[:venue_city], state: params[:venue_state],
                                     zip_code: params[:venue_zip_code])
+    address = "#{venue.street_1}, #{venue.city}, #{venue.state}"
+    loc=MultiGeocoder.geocode(address)
+    if loc.success
+      venue.update(lat: loc.lat)
+      venue.update(lng: loc.lng)
+      venue.save
+    end
     @show = Show.new(datetime: params[:datetime], details: params[:details], venue_id: venue.id)
     if @show.save
       band = Band.find_or_create_by(name: params[:band_name])
