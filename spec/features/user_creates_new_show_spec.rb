@@ -35,5 +35,6 @@ feature "User submits a new show" do
     click_on "Submit show"
 
     expect(page).to have_content "Show created!"
+    expect(page).to have_content "Screaming Females"
   end
 end
