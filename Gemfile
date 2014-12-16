@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 ruby '2.1.2'
 gem 'pg'
 gem 'rake'
-gem 'pry'
 gem 'dotenv'
 # pagination
 gem 'kaminari'
@@ -12,6 +11,15 @@ gem 'geokit'
 gem 'geokit-rails'
 # gem for authentication
 gem 'devise'
+
+group :development, :test do
+  gem 'pry'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'factory_girl'
+  gem "factory_girl_rails", "~> 4.0"
+end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use sqlite3 as the database for Active Record

@@ -3,6 +3,9 @@ class ShowController < ApplicationController
 
   def new
     @show = Show.new
+    @band = Band.new
+    @venue = Venue.new
+    @genre = Genre.new
   end
 
   def index

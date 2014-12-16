@@ -1,15 +1,7 @@
-<% if @show.errors %>
-  <% @show.errors.full_messages.each do |msg| %>
-    <div class='flash-error'>
-      <%= msg %>
-    </div>
-  <% end %>
-<% end %>
-
 <form action='/shows/new' method='post'>
   <div>
-    <label for='Band Name'>Band Name
-    <input type='text' name='Band Name' id='Band Name' placeholder='Band name'/></label>
+    <label for="band_name">Band Name</label>
+    <input type='text' name='band_name' id='band_name' placeholder='Band name'>
   </div>
   <div>
     <label for="Genre">Genre</label>
@@ -24,7 +16,7 @@
     <input type='text' name='venue_description' id='Venue Description' placeholder='Description'>
   </div>
   <div>
-    <label for="Venue Street 1">Street Address 1</label>
+    <label for="Venue Street 1">Address 1</label>
     <input type='text' name='venue_street_1' id='Venue Street 1' placeholder='Street Address 1'>
   </div>
   <div>
