@@ -41,7 +41,6 @@ class ShowController < ApplicationController
       end
       @show = Show.new(datetime: params[:datetime], details: params[:details], venue_id: venue.id)
       if @show.save
-        binding.pry
         band = Band.find_or_create_by(name: params[:band_name])
         ShowBand.create(band_id: band.id, show_id: @show.id)
         genre = Genre.find_or_create_by(genre: params[:band_genre])
