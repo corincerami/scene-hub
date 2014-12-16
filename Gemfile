@@ -11,6 +11,7 @@ gem 'geokit'
 gem 'geokit-rails'
 # gem for authentication
 gem 'devise'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'pry'
