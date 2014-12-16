@@ -40,12 +40,16 @@ class ShowController < ApplicationController
         venue.save
       end
       @show = Show.new(datetime: params[:datetime], details: params[:details], venue_id: venue.id)
-      if @show.save
-        band = Band.find_or_create_by(name: params[:band_name])
-        ShowBand.create(band_id: band.id, show_id: @show.id)
-        genre = Genre.find_or_create_by(genre: params[:band_genre])
-        GenreBand.create(band_id: band.id, genre_id: genre.id)
-        redirect_to '/shows', notice: "Show created!"
+      @band = Band.find_or_create_by(name: params[:band_name])
+      genre = Genre.find_or_create_by(genre: params[:band_genre])
+      if @band.save
+        GenreBand.create(band_id: @band.id, genre_id: genre.id)
+        if @show.save
+          ShowBand.create(band_id: @band.id, show_id: @show.id)
+          redirect_to '/shows', notice: "Show created!"
+        else
+          render :new
+        end
       else
         render :new
       end

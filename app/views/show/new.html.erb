@@ -6,6 +6,14 @@
   <% end %>
 <% end %>
 
+<% if @band.errors %>
+  <% @band.errors.full_messages.each do |msg| %>
+    <div class='flash-error'>
+      <%= msg %>
+    </div>
+  <% end %>
+<% end %>
+
 <form action='/shows/new' method='post'>
   <div>
     <label for='Band Name'>Band Name
