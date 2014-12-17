@@ -34,10 +34,11 @@
 
 a {
   color: #FF389C;
+
 }
 
 a:visited {
-  color: #B0276C;
+  color: #E5267E;
 }
 
 * {
@@ -67,6 +68,12 @@ a:visited {
   float: right;
 }
 
-h1 {
-  font-family: impact;
+h1 a {
+  font-family: Impact;
+  font-size: 150px;
+}
+
+h3 {
+  font-size: 50px;
+  font-style: italic;
 }

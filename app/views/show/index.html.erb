@@ -16,28 +16,32 @@
   </div>
 </div>
 
-<%= paginate @shows %>
+<div class='row'>
+  <div class='small-8 columns'>
+    <%= paginate @shows %>
 
-<% @shows.each do |show| %>
-  <div class='border'>
-    <% show.bands.each do |band| %>
-      <div>
-        <a href="/bands/<%= band.id %>"><%= band.name %></a>
+    <% @shows.each do |show| %>
+      <div class='border'>
+        <% show.bands.each do |band| %>
+          <div>
+            <a href="/bands/<%= band.id %>"><%= band.name %></a>
+          </div>
+        <% end %>
+        <div>
+          <a href='/venues/<%= show.venue.id %>'><%= show.venue.name %></a>
+        </div>
+        <div>
+          <%= show.details %>
+        </div>
+        <div>
+          <%= show.datetime %>
+        </div>
+        <div>
+          <a href='/shows/<%= show.id %>'>
+          Check out this show
+          </a>
+        </div>
       </div>
     <% end %>
-    <div>
-      <a href='/venues/<%= show.venue.id %>'><%= show.venue.name %></a>
-    </div>
-    <div>
-      <%= show.details %>
-    </div>
-    <div>
-      <%= show.datetime %>
-    </div>
-    <div>
-      <a href='/shows/<%= show.id %>'>
-      Check out this show
-      </a>
-    </div>
   </div>
-<% end %>
+</div>

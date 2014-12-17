@@ -1,8 +1,12 @@
-<% @bands.each do |band| %>
-  <div class='border'>
-    <%= band.name %>
-    <% band.genres.each do |genre| %>
-      <div><%= genre.genre %></div>
+<div class='row'>
+  <div class='small-8 columns'>
+    <% @bands.each do |band| %>
+      <div class='border'>
+        <%= band.name %>
+        <% band.genres.each do |genre| %>
+          <div><%= genre.genre %></div>
+        <% end %>
+      </div>
     <% end %>
   </div>
-<% end %>
+</div>
