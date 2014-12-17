@@ -32,3 +32,13 @@
     <%= @show.venue.zip_code %>
   </div>
 </div>
+
+<%= form_for [@show, @comment] do |f| %>
+  <%= f.label :content, "Comment" %>
+  <%= f.text_field :content %>
+  <%= f.submit "Submit" %>
+<% end %>
+
+<% @comments.each do |comment| %>
+  <div><%= comment.content %></div>
+<% end %>

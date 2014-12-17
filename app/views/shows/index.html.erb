@@ -1,8 +1,8 @@
 <div class='row'>
   <div class='small-4 columns'>
-    <a href='/shows/new'>
-      <div class='post-button'>Post a new show!</div>
-    </a>
+    <div class='post-butto'n>
+      <%= link_to("Tell us about your show", new_show_path ) %>
+    </div>
   </div>
 </div>
 
@@ -28,7 +28,7 @@
           </div>
         <% end %>
         <div>
-          <a href='/venues/<%= show.venue.id %>'><%= show.venue.name %></a>
+          <%= link_to("#{show.venue.name}", venue_path(show.venue)) %>
         </div>
         <div>
           <%= show.details %>
@@ -37,9 +37,7 @@
           <%= show.datetime %>
         </div>
         <div>
-          <a href='/shows/<%= show.id %>'>
-          Check out this show
-          </a>
+          <%= link_to("Check out this show", show_path(show)) %>
         </div>
       </div>
     <% end %>

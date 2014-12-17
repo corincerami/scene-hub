@@ -1,4 +1,4 @@
-class BandController < ApplicationController
+class BandsController < ApplicationController
   def index
     @bands = Band.all
   end

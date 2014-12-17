@@ -18,7 +18,7 @@ feature "User submits a new show" do
   # I must enter a venue zip code
 
   it "creates a show when required fields are entered" do
-    visit '/shows/new'
+    visit new_show_path
     user = FactoryGirl.create(:user)
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password

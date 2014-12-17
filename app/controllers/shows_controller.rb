@@ -1,4 +1,4 @@
-class ShowController < ApplicationController
+class ShowsController < ApplicationController
   include Geokit::Geocoders
 
   def new
@@ -21,6 +21,8 @@ class ShowController < ApplicationController
 
   def show
     @show = Show.find(params[:id])
+    @comment = @show.comments.build
+    @comments = Comment.where(show_id: @show.id)
   end
 
   before_action :authenticate_user!, only: [:create, :new]
@@ -46,7 +48,7 @@ class ShowController < ApplicationController
         GenreBand.create(band_id: @band.id, genre_id: genre.id)
         if @show.save
           ShowBand.create(band_id: @band.id, show_id: @show.id)
-          redirect_to '/shows', notice: "Show created!"
+          redirect_to shows_path, notice: "Show created!"
         else
           render :new
         end
