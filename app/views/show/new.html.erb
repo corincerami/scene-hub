@@ -14,55 +14,59 @@
   <% end %>
 <% end %>
 
-<form action='/shows/new' method='post'>
-  <div>
-    <label for='Band Name'>Band Name
-    <input type='text' name='band_name' id='Band Name' placeholder='Band name'/></label>
+<div class='row'>
+  <div class='small-6 columns'>
+    <form action='/shows/new' method='post'>
+      <div>
+        <label for='Band Name'>Band Name
+        <input type='text' name='band_name' id='Band Name' placeholder='Band name'/></label>
+      </div>
+      <div>
+        <label for="Genre">Genre</label>
+        <input type='text' name='band_genre' id='Genre' placeholder='Band genre'>
+      </div>
+      <div>
+        <label for="Venue Name">Venue Name</label>
+        <input type='text' name='venue_name' id="Venue Name" placeholder='Venue name'>
+      </div>
+      <div>
+        <label for="Venue Description">Venue Description</label>
+        <input type='text' name='venue_description' id='Venue Description' placeholder='Description'>
+      </div>
+      <div>
+        <label for="Venue Street 1">Street Address 1</label>
+        <input type='text' name='venue_street_1' id='Venue Street 1' placeholder='Street Address 1'>
+      </div>
+      <div>
+        <label for="Venue Street 2">Street Address 2</label>
+        <input type='text' name='venue_street_2' id='Venue Street 2' placeholder='Street Address 2'>
+      </div>
+      <div>
+        <label for="Venue City">City</label>
+        <input type='text' name='venue_city' id='Venue City' placeholder='City'>
+      </div>
+      <div>
+        <label for="Venue State">State</label>
+        <input type='text' name='venue_state' id='Venue State' placeholder='State'>
+      </div>
+      <div>
+        <label for="Venue Zipcode">Zipcode</label>
+        <input type='text' name='venue_zip_code' id='Venue Zipcode' placeholder='Zip code'>
+      </div>
+      <div>
+        <label for="Venue Details">Venue Details</label>
+        <input type='text' name='details' id='Venue Details' placeholder='Details'>
+      </div>
+      <div>
+        <label for="Datetime">Date and Time</label>
+        <input type='datetime-local' id='Datetime' name='datetime'>
+      </div>
+      <div>
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+      </div>
+      <div>
+        <input type='submit' value='Submit show'>
+      </div>
+    </form>
   </div>
-  <div>
-    <label for="Genre">Genre</label>
-    <input type='text' name='band_genre' id='Genre' placeholder='Band genre'>
-  </div>
-  <div>
-    <label for="Venue Name">Venue Name</label>
-    <input type='text' name='venue_name' id="Venue Name" placeholder='Venue name'>
-  </div>
-  <div>
-    <label for="Venue Description">Venue Description</label>
-    <input type='text' name='venue_description' id='Venue Description' placeholder='Description'>
-  </div>
-  <div>
-    <label for="Venue Street 1">Street Address 1</label>
-    <input type='text' name='venue_street_1' id='Venue Street 1' placeholder='Street Address 1'>
-  </div>
-  <div>
-    <label for="Venue Street 2">Street Address 2</label>
-    <input type='text' name='venue_street_2' id='Venue Street 2' placeholder='Street Address 2'>
-  </div>
-  <div>
-    <label for="Venue City">City</label>
-    <input type='text' name='venue_city' id='Venue City' placeholder='City'>
-  </div>
-  <div>
-    <label for="Venue State">State</label>
-    <input type='text' name='venue_state' id='Venue State' placeholder='State'>
-  </div>
-  <div>
-    <label for="Venue Zipcode">Zipcode</label>
-    <input type='text' name='venue_zip_code' id='Venue Zipcode' placeholder='Zip code'>
-  </div>
-  <div>
-    <label for="Venue Details">Venue Details</label>
-    <input type='text' name='details' id='Venue Details' placeholder='Details'>
-  </div>
-  <div>
-    <label for="Datetime">Date and Time</label>
-    <input type='datetime-local' id='Datetime' name='datetime'>
-  </div>
-  <div>
-    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-  </div>
-  <div>
-    <input type='submit' value='Submit show'>
-  </div>
-</form>
+</div>
