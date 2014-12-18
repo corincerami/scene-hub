@@ -1,7 +1,7 @@
 <div class='border'>
   <% @show.bands.each do |band| %>
     <div>
-      <%= band.name %>
+      <%= link_to(band.name, band) %>
     </div>
     Genres:
     <% band.genres.each do |genre| %>

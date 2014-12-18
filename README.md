@@ -15,11 +15,13 @@ Scene Hub is a web app written in Ruby on Rails that is being designed to serve 
 - Geocode new shows before saving them to the database
 - Zip codes are now verified as valid before posting shows to the database.
 - Shows can no longer be posted without bands, venues, and datetimes.
+- Comments can now be posted to shows
 
 ## To Do:
 - When filling out forms, users should be able to specify as many bands for a show and genres for a band as they want.
+-- Should use checkboxes with common genres
 - Allow bands to post news/links on their individual band page
-- Allow comments and photos to be posted to show pages/band pages
+- Allow photos to be posted to show pages/band pages
 - Create upvote/downvote or "like" system for comments and photos
 - Signed in users can add favorites to their profiles
 - Implement social features

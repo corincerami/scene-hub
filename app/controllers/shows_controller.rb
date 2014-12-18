@@ -43,9 +43,11 @@ class ShowsController < ApplicationController
       end
       @show = Show.new(datetime: params[:datetime], details: params[:details], venue_id: venue.id)
       @band = Band.find_or_create_by(name: params[:band_name])
-      genre = Genre.find_or_create_by(genre: params[:band_genre])
       if @band.save
-        GenreBand.create(band_id: @band.id, genre_id: genre.id)
+        get_genres.each do |genre|
+          @genre = Genre.find_or_create_by(genre: genre)
+          GenreBand.find_or_create_by(band_id: @band.id, genre_id: @genre.id)
+        end
         if @show.save
           ShowBand.create(band_id: @band.id, show_id: @show.id)
           redirect_to shows_path, notice: "Show created!"
@@ -58,6 +60,16 @@ class ShowsController < ApplicationController
     else
       render :new
     end
+  end
+
+  private
+
+  def get_genres
+    genres = Array.new
+    genres << "punk" if params["genre-punk"]
+    genres << "rock" if params["genre-rock"]
+    genres << "pop" if params["genre-pop"]
+    genres
   end
 
   Dotenv.load

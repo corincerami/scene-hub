@@ -24,7 +24,8 @@ feature "User submits a new show" do
     fill_in "Password", with: user.password
     click_on "Log in"
     fill_in "Band Name", with: "Screaming Females"
-    fill_in "Genre", with: "punk"
+    check "punk"
+    check "rock"
     fill_in "Venue Name", with: "Bell House"
     fill_in "Street Address 1", with: "66 Kenzel Ave"
     fill_in "City", with: "Nutley"
